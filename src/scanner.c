@@ -11,7 +11,7 @@ typedef struct
   int line;
 } Scanner;
 
-Scanenr scanner;
+Scanner scanner;
 
 void init_scanner(const char* source)
 {
@@ -27,7 +27,7 @@ static bool is_alpha(char c)
           c == '_';
 }
 
-static bool id_digit(char c)
+static bool is_digit(char c)
 {
   return c >= '0' && c <= '9';
 }
@@ -174,14 +174,14 @@ static Token identifier()
 
 static Token number()
 {
-  while is_digit(peek()) advance();
+  while (is_digit(peek())) advance();
 
   // Look fo a fractional part 
-  if (peek() == '.' && id_digit(peek_next()))
+  if (peek() == '.' && is_digit(peek_next()))
   {
     // Consume the "."
     advance();
-    while (id_digit(peek())) advance();
+    while (is_digit(peek())) advance();
   }
 
   return make_token(TOKEN_NUMBER);

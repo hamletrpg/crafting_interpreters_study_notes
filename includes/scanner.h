@@ -16,7 +16,7 @@ typedef enum
   TOKEN_IDENTIFIER, TOKEN_STRING, TOKEN_NUMBER,
   // Keywords.
   TOKEN_AND, TOKEN_CLASS, TOKEN_ELSE, TOKEN_FALSE,
-  TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NUL, TOKEN_OR,
+  TOKEN_FOR, TOKEN_FUN, TOKEN_IF, TOKEN_NIL, TOKEN_OR,
   TOKEN_PRINT, TOKEN_RETURN, TOKEN_SUPER, TOKEN_THIS,
   TOKEN_TRUE, TOKEN_VAR, TOKEN_WHILE,
 
@@ -26,7 +26,7 @@ typedef enum
 typedef struct 
 {
   TokenType type;
-  const char* star;
+  const char* start;
   int length;
   int line;
 } Token;
